@@ -1,0 +1,343 @@
+/* --- General Setup --- */
+:root {
+    --primary-color: #007BFF;
+    --primary-hover-color: #0056b3;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --light-text-color: #777;
+    --border-color: #e9ecef;
+    --shadow: 0 4px 8px rgba(0,0,0,0.05);
+    --gold: #ffc107;
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #fdfdff;
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header & Footer --- */
+header {
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header nav a:hover {
+    background-color: var(--primary-hover-color);
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    color: var(--light-text-color);
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Page Management --- */
+.page {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Card Layout --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.service-card {
+    text-align: center;
+}
+
+.service-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.provider-card, .history-card {
+    cursor: default;
+}
+
+.provider-card h4, .history-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.provider-details {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.provider-details p {
+    color: var(--light-text-color);
+    margin-bottom: 0.25rem;
+}
+
+.rating {
+    color: var(--gold);
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.verification-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.badge.gold { background-color: var(--gold); }
+.badge.silver { background-color: var(--silver); }
+.badge.bronze { background-color: var(--bronze); }
+
+.verified-id, .bg-checked {
+    font-size: 0.9rem;
+    color: #28a745;
+    display: flex;
+    align-items: center;
+}
+
+.verified-id::before, .bg-checked::before {
+    content: '✔';
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+/* --- Booking & Confirmation Page --- */
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+#provider-booking-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.booking-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.booking-form #confirm-booking-btn {
+    width: 100%;
+}
+
+.confirmation-box {
+    text-align: center;
+    background: var(--secondary-color);
+    padding: 3rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.confirmation-box h2 {
+    color: #28a745;
+    font-size: 2rem;
+}
+
+/* --- History Page --- */
+#history-list p {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--light-text-color);
+}
+
+.history-card {
+    padding-bottom: 1rem;
+}
+.history-card p{
+    text-align: left;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+}

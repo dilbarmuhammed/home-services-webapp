@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixSure - On-Demand Home Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo" onclick="showPage('landing-page')">FixSure</h1>
+            <nav>
+                <a href="#" onclick="showPage('history-page')">Booking History</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Landing Page -->
+        <section id="landing-page" class="page active">
+            <div class="hero">
+                <h2>Verified services. Guaranteed work.</h2>
+                <p>Connecting you with trusted professionals for all your home needs.</p>
+            </div>
+            <h3>Our Services</h3>
+            <div id="service-categories" class="card-grid">
+                <!-- Service category cards will be injected by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Providers List Page -->
+        <section id="providers-page" class="page">
+            <button class="back-btn" onclick="showPage('landing-page')">&larr; Back to Services</button>
+            <h2 id="providers-title"></h2>
+            <div id="providers-list" class="card-grid">
+                <!-- Provider cards will be injected by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Booking Page -->
+        <section id="booking-page" class="page">
+            <button class="back-btn" onclick="showPage('providers-page', currentCategory)">&larr; Back to Providers</button>
+            <h2>Book a Service</h2>
+            <div id="booking-details" class="booking-container">
+                <div id="provider-booking-card">
+                    <!-- Selected provider details will be injected by JavaScript -->
+                </div>
+                <div class="booking-form">
+                    <h3>Select Date & Time</h3>
+                    <input type="date" id="booking-date">
+                    <input type="time" id="booking-time">
+                    <button id="confirm-booking-btn" class="btn-primary">Confirm Booking</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Confirmation Page -->
+        <section id="confirmation-page" class="page">
+            <div class="confirmation-box">
+                <h2>Booking Confirmed!</h2>
+                <p>Your service is scheduled. You can view details in your <a href="#" onclick="showPage('history-page')">Booking History</a>.</p>
+                <button class="btn-primary" onclick="showPage('landing-page')">Book Another Service</button>
+            </div>
+        </section>
+
+        <!-- Service History Page -->
+        <section id="history-page" class="page">
+            <h2>Home Service History</h2>
+            <div id="history-list" class="card-grid">
+                <p>No past bookings found.</p>
+                <!-- History cards will be injected by JavaScript -->
+            </div>
+             <button class="btn-primary" onclick="showPage('landing-page')">Book a Service</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 FixSure. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
